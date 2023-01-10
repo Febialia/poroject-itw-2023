@@ -1,18 +1,12 @@
-// init Isotope
-var $grid = $('.collection-list').isotope({
-  // options
-});
-// filter items on button click
-$('.filter-button-group').on('click', 'button', function () {
-  var filterValue = $(this).attr('data-filter');
-  resetFilterBtns();
-  $(this).addClass('active-filter-btn');
-  $grid.isotope({ filter: filterValue });
-});
+let menu = document.querySelector('#menu-bars');
+let header = document.querySelector('header');
 
-var filterBtns = $('.filter-button-group').find('button');
-function resetFilterBtns() {
-  filterBtns.each(function () {
-    $(this).removeClass('active-filter-btn');
-  });
-}
+menu.onclick = () => {
+  menu.classList.toggle('fa-times');
+  header.classList.toggle('active');
+};
+
+window.onscroll = () => {
+  menu.classList.remove('fa-times');
+  header.classList.remove('active');
+};
